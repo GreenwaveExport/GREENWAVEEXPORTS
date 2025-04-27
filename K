@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenwave Exports</title>
+    <style>
+        /* Importing Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Light Gray Background */
+        }
+        header {
+            background-color: #000000; /* Black Header */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 18px;
+            color: #ffffff;
+        }
+        .logo {
+            width: 150px; /* Adjust size of logo */
+            height: auto;
+        }
+        .section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white; /* White Background for Sections */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2C3E50; /* Dark Blue for Titles */
+        }
+        p {
+            color: #333333; /* Dark Gray Text */
+        }
+        a {
+            color: #FF9800; /* Orange Links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #2C3E50; /* Dark Blue Footer */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Change Font for Product Names */
+        #products ul {
+            list-style-type: none; /* Remove default bullets */
+            padding: 0;
+        }
+
+        #products li {
+            font-family: 'Roboto', sans-serif; /* New font for product names */
+            font-size: 18px;
+            color: #333333; /* Dark Gray for text */
+            margin: 10px 0;
+        }
+
+        /* Style for Product Images */
+        .product-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Greenwave Exports Logo" class="logo">
+    <h1>Welcome to Greenwave Exports</h1>
+    <p class="tagline">"Built on Trust. Shipped with Care."</p>
+</header>
+
+<div class="section" id="about">
+    <h2>About Us</h2>
+    <p>We are the founders of Greenwave Exports. The team consists of:</p>
+    <ul>
+        <li><strong>Kavaljeetsinh Nakum</strong> - Founder</li>
+        <li><strong>Krishnarajsinh Nakum</strong> - Founder</li>
+        <li><strong>Harsh Maru</strong> - Founder</li> <!-- Added Harsh Maru as Founder -->
+    </ul>
+    <p>Together, we specialize in exporting high-quality coconuts, husked coconuts, semi-husked coconuts, and fresh green chilies. Our mission is to deliver fresh products with the highest standards of quality and service, globally.</p>
+</div>
+
+<div class="section" id="products">
+    <h2>Our Products</h2>
+    <ul>
+        <li>Husked Coconut</li>
+        <li>Semi-Husked Coconut</li>
+        <li>Fresh Coconut</li>
+        <li>Green Chili</li>
+    </ul>
+
+    <h3>Fresh Pollachi Coconuts</h3>
+    <p>We offer fresh coconuts sourced directly from Pollachi, known for their high quality and freshness. Below are images of our products available for export:</p>
+
+    <!-- Product Image 1 -->
+    <img src="pollachi-fresh-coconut1.jpg" alt="Pollachi Fresh Coconut" class="product-image">
+
+    <!-- Product Image 2 -->
+    <img src="pollachi-fresh-coconut2.jpg" alt="Pollachi Fresh Coconut" class="product-image">
+
+    <!-- Product Image 3 -->
+    <img src="pollachi-fresh-coconut3.jpg" alt="Pollachi Fresh Coconut" class="product-image">
+
+    <p>For more information, you can visit the official website for Pollachi Fresh Coconuts to see the full gallery and details of their products: <a href="https://www.pollachifreshcoconuts.com" target="_blank">Pollachi Fresh Coconuts</a></p>
+
+    <h3>Semi-Husked Coconuts</h3>
+    <p>Our semi-husked coconuts are a perfect balance between fully husked and fresh coconuts, ideal for export markets. Here are images of our semi-husked coconuts ready for shipment:</p>
+
+    <!-- Semi-Husked Coconut Image 1 -->
+    <img src="semi-husked-coconut1.jpg" alt="Semi Husked Coconut" class="product-image">
+
+    <!-- Semi-Husked Coconut Image 2 -->
+    <img src="semi-husked-coconut2.jpg" alt="Semi Husked Coconut" class="product-image">
+
+    <!-- Semi-Husked Coconut Image 3 -->
+    <img src="semi-husked-coconut3.jpg" alt="Semi Husked Coconut" class="product-image">
+</div>
+
+<div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you would like to inquire about our products or services, please reach out to us!</p>
+    <p>Founder: <strong>Kavaljeetsinh Nakum</strong> | Phone: <a href="tel:+917435853083">+91 74358 53083</a></p>
+    <p>Founder: <strong>Krishnarajsinh Nakum</strong> | Phone: <a href="tel:+916351616531">+91 63516 16531</a></p>
+    <p>Founder: <strong>Harsh Maru</strong> | Phone: <a href="tel:+917990310420">+91 79903 10420</a></p> <!-- Added Harsh Maru -->
+    <p>Email: info@greenwaveexports.com</p>
+</div>
+
+<footer>
+    <p>&copy; 2025 Greenwave Exports. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
