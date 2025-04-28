@@ -21,14 +21,29 @@
       width: 120px;
       height: auto;
       object-fit: contain;
+      animation: logo-float 3s ease-in-out infinite;
     }
+
+    @keyframes logo-float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
     /* Header after logo */
     header {
       background-color: #000000;
       color: white;
       text-align: center;
       padding: 20px 0;
+      animation: slide-in 1s ease-out;
     }
+
+    @keyframes slide-in {
+      0% { transform: translateX(-100%); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
     nav {
       background-color: #333;
       display: flex;
@@ -60,7 +75,14 @@
       margin: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      animation: fade-in 1.5s ease-out;
     }
+
+    @keyframes fade-in {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
     footer {
       background-color: #333;
       color: white;
@@ -85,19 +107,9 @@
       transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
 
-    /* Animation for img.jpg */
-    .animate-image {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
     /* Hover Zoom effect */
     img.product-image:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
@@ -114,6 +126,11 @@
         margin: 5px 10px;
         font-size: 14px;
       }
+    }
+
+    /* Smooth Scroll Effect */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
