@@ -10,8 +10,9 @@
       margin: 0;
       padding: 0;
       background-color: #f5f5f5;
-      overflow-x: hidden;
     }
+
+    /* Logo only section */
     .logo-container {
       background: #ffffff;
       text-align: center;
@@ -22,14 +23,25 @@
       height: auto;
       object-fit: contain;
       border-radius: 0;
-      animation: fadeZoomIn 2s ease forwards;
     }
+
+    /* Header after logo */
     header {
       background-color: #000000;
       color: white;
       text-align: center;
       padding: 20px 0;
     }
+
+    .tagline {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
     nav {
       background-color: #333;
       display: flex;
@@ -47,28 +59,15 @@
     nav a:hover {
       text-decoration: underline;
     }
-    .tagline {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 18px;
-      color: #ffffff;
-      text-transform: uppercase;
-      margin-top: 10px;
-    }
+
     .section {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease;
       padding: 40px 20px;
       background-color: white;
       margin: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
     footer {
       background-color: #333;
       color: white;
@@ -76,6 +75,7 @@
       padding: 15px;
       margin-top: 20px;
     }
+
     ul {
       list-style: none;
       padding-left: 0;
@@ -83,12 +83,8 @@
     ul li {
       margin: 5px 0;
     }
-    .products-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+
+    /* Product images */
     img.product-image {
       width: 100%;
       max-width: 300px;
@@ -96,22 +92,27 @@
       margin: 10px;
       border-radius: 10px;
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
-      animation: fadeZoomIn 2s ease forwards;
-      transition: transform 0.5s ease;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
+
+    /* Animation for img.jpg */
+    .animate-image {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* On hover effect */
     img.product-image:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-    @keyframes fadeZoomIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+
+    /* Responsive */
     @media (max-width: 600px) {
       .logo-container img {
         width: 90px;
@@ -123,10 +124,6 @@
       nav a {
         margin: 5px 10px;
         font-size: 14px;
-      }
-      .products-container {
-        flex-direction: column;
-        align-items: center;
       }
     }
   </style>
@@ -149,76 +146,4 @@
 <nav>
   <a href="#about">About</a>
   <a href="#products">Products</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- About Section -->
-<div class="section" id="about">
-  <h2>About Us</h2>
-  <p>📞 Mobile Numbers:</p>
-  <ul>
-    <li><a href="tel:+917435853083">+91 74358 53083</a></li>
-    <li><a href="tel:+917990310420">+91 79903 10420</a></li>
-    <li><a href="tel:+916351616531">+91 63516 16531</a></li>
-  </ul>
-  <p>📧 Email:</p>
-  <ul>
-    <li><a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></li>
-  </ul>
-  <p>📍 Address:</p>
-  <ul>
-    <li>MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</li>
-  </ul>
-</div>
-
-<!-- Products Section -->
-<div class="section" id="products">
-  <h2>Our Products</h2>
-  <div class="products-container">
-    <img src="img.png" alt="Your Product Photo" class="product-image">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Coconuts_in_Kozhikode%2C_Kerala.jpg" alt="Coconut" class="product-image">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Young_coconut.jpg" alt="Young Coconut" class="product-image">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Chillies_in_India.jpg" alt="Chillies" class="product-image">
-  </div>
-</div>
-
-<!-- Contact Section -->
-<div class="section" id="contact">
-  <h2>Contact Us</h2>
-  <p>Founder: <strong>Harsh Maru</strong> | Phone: <a href="tel:+917990310420">+91 79903 10420</a></p>
-  <p>Founder: <strong>Kavaljeetsinh Nakum</strong> | Phone: <a href="tel:+917435853083">+91 74358 53083</a></p>
-  <p>Founder: <strong>Krishnarajsinh Nakum</strong> | Phone: <a href="tel:+916351616531">+91 63516 16531</a></p>
-  <p>Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></p>
-  <p>Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</p>
-</div>
-
-<!-- Footer -->
-<footer>
-  &copy; 2025 Greenwave Exports. All rights reserved.
-</footer>
-
-<!-- Scroll Animation Script -->
-<script>
-  const sections = document.querySelectorAll('.section');
-
-  window.addEventListener('scroll', () => {
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if(rect.top < window.innerHeight - 100){
-        sec.classList.add('visible');
-      }
-    });
-  });
-
-  window.addEventListener('load', () => {
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      if(rect.top < window.innerHeight - 100){
-        sec.classList.add('visible');
-      }
-    });
-  });
-</script>
-
-</body>
-</html>
+  <a href="#contact
