@@ -12,7 +12,6 @@
       background-color: #f5f5f5;
       overflow-x: hidden;
     }
-    /* Logo only section */
     .logo-container {
       background: #ffffff;
       text-align: center;
@@ -25,7 +24,6 @@
       border-radius: 0;
       animation: fadeZoomIn 2s ease forwards;
     }
-    /* Header after logo */
     header {
       background-color: #000000;
       color: white;
@@ -85,7 +83,12 @@
     ul li {
       margin: 5px 0;
     }
-
+    .products-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
     img.product-image {
       width: 100%;
       max-width: 300px;
@@ -99,7 +102,6 @@
     img.product-image:hover {
       transform: scale(1.1);
     }
-
     @keyframes fadeZoomIn {
       0% {
         opacity: 0;
@@ -110,7 +112,6 @@
         transform: scale(1);
       }
     }
-
     @media (max-width: 600px) {
       .logo-container img {
         width: 90px;
@@ -122,6 +123,10 @@
       nav a {
         margin: 5px 10px;
         font-size: 14px;
+      }
+      .products-container {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -169,8 +174,11 @@
 <!-- Products Section -->
 <div class="section" id="products">
   <h2>Our Products</h2>
-  <div>
+  <div class="products-container">
     <img src="img.png" alt="Your Product Photo" class="product-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Coconuts_in_Kozhikode%2C_Kerala.jpg" alt="Coconut" class="product-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Young_coconut.jpg" alt="Young Coconut" class="product-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Chillies_in_India.jpg" alt="Chillies" class="product-image">
   </div>
 </div>
 
@@ -189,7 +197,7 @@
   &copy; 2025 Greenwave Exports. All rights reserved.
 </footer>
 
-<!-- JavaScript for Scroll Animation -->
+<!-- Scroll Animation Script -->
 <script>
   const sections = document.querySelectorAll('.section');
 
@@ -202,7 +210,6 @@
     });
   });
 
-  // First time load par visible karva mate
   window.addEventListener('load', () => {
     sections.forEach(sec => {
       const rect = sec.getBoundingClientRect();
