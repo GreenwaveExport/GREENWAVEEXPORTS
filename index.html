@@ -2,100 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Greenwave Exports</title>
+
   <style>
+    /* General Reset */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #f5f7fa;
     }
-    /* Logo only section */
+
+    /* Logo Container */
     .logo-container {
-      background: #ffffff; /* White background */
-      text-align: center;
-      padding: 15px 0;
-    }
-    .logo-container img {
-      width: 300px; /* Increased width */
-      height: auto;
-      object-fit: contain; /* Keep logo clear and maintain aspect ratio */
-      border-radius: 0; /* No round corners */
-    }
-    /* Header after logo */
-    header {
-      background-color: #ffffff; /* White background */
-      color: black; /* Black text color */
+      background: #ffffff;
       text-align: center;
       padding: 20px 0;
     }
+    .logo-container img {
+      width: 180px; /* Logo ne moto karyo */
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Header */
+    header {
+      background-color: #ffffff; /* White header */
+      color: #000000; /* Black text */
+      text-align: center;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .tagline {
+      margin-top: 5px;
+      font-weight: bold;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #555555;
+    }
+
+    /* Navigation */
     nav {
-      background-color: #333;
+      background-color: #4CAF50;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 10px;
+      gap: 10px;
     }
     nav a {
       color: white;
       text-decoration: none;
-      margin: 10px 15px;
       font-weight: bold;
       font-size: 16px;
+      padding: 8px 12px;
+      transition: background 0.3s;
     }
     nav a:hover {
-      text-decoration: underline;
+      background-color: #45a049;
+      border-radius: 5px;
     }
-    .tagline {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 18px;
-      color: #000000; /* Black text for tagline */
-      text-transform: uppercase;
-      margin-top: 10px;
-    }
+
+    /* Section */
     .section {
-      padding: 40px 20px;
-      background-color: white;
+      padding: 50px 20px;
+      background-color: #ffffff;
       margin: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
     }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Products */
+    .product-image {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    form input, form textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background-color: #218838;
+    }
+
+    /* Footer */
     footer {
       background-color: #333;
       color: white;
       text-align: center;
       padding: 15px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 5px 0;
-    }
-    img.product-image {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    }
-    /* Responsive for mobile */
+
+    /* Responsive */
     @media (max-width: 600px) {
-      .logo-container img {
-        width: 200px; /* Adjusted for mobile view */
+      nav a {
+        font-size: 14px;
       }
       .section {
         margin: 10px;
-        padding: 20px 10px;
+        padding: 30px 15px;
       }
-      nav a {
-        margin: 5px 10px;
-        font-size: 14px;
+      .logo-container img {
+        width: 140px;
       }
     }
   </style>
@@ -105,17 +154,16 @@
 
 <!-- Logo Section -->
 <div class="logo-container">
-  <!-- Ensure the image file is in the correct location -->
-  <img src="logo.png" alt="Greenwave Exports Logo"> <!-- Update this path if needed -->
+  <img src="logo.png" alt="Greenwave Exports Logo">
 </div>
 
-<!-- White Header -->
+<!-- Header -->
 <header>
   <h1>Greenwave Exports</h1>
-  <p class="tagline">Built on Trust. Shipped with Care.</p>
+  <p class="tagline">BUILT ON TRUST. SHIPPED WITH CARE.</p>
 </header>
 
-<!-- Navigation Bar -->
+<!-- Navigation -->
 <nav>
   <a href="#about">About</a>
   <a href="#products">Products</a>
@@ -144,18 +192,26 @@
 <!-- Products Section -->
 <div class="section" id="products">
   <h2>Our Products</h2>
-  <div>
-    <!-- Added img.jpg image under "Our Products" -->
-    <img src="img.jpg" alt="Your Photo" class="product-image"> <!-- Added your image here -->
-  </div>
+  <img src="img.jpg" alt="Product Image" class="product-image">
 </div>
 
 <!-- Contact Section -->
 <div class="section" id="contact">
   <h2>Contact Us</h2>
-  <p>Founder: <strong>Harsh Maru</strong> | Phone: <a href="tel:+917990310420">+91 79903 10420</a></p>
+
+  <form action="https://formspree.io/f/mzzrzlgq" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <p style="text-align: center; margin-top: 20px;">OR Contact Our Founders:</p>
+  
   <p>Founder: <strong>Kavaljeetsinh Nakum</strong> | Phone: <a href="tel:+917435853083">+91 74358 53083</a></p>
   <p>Founder: <strong>Krishnarajsinh Nakum</strong> | Phone: <a href="tel:+916351616531">+91 63516 16531</a></p>
+  <p>Founder: <strong>Harsh Maru</strong> | Phone: <a href="tel:+917990310420">+91 79903 10420</a></p>
+  
   <p>Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></p>
   <p>Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</p>
 </div>
