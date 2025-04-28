@@ -109,12 +109,14 @@
       flex-wrap: wrap;
     }
     .product-image {
-      width: 50%;  /* Changed width to 50% for smaller images */
+      width: 50%;
       height: auto;
       margin: 0 auto;
       display: block;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-height: 300px; /* Set both images' max height */
+      object-fit: cover; /* Ensures the image covers the area */
     }
 
     /* Contact Form */
@@ -175,7 +177,7 @@
         align-items: center;
       }
       .product-image {
-        width: 80%; /* On smaller screens, increase image size */
+        width: 80%;
       }
     }
   </style>
