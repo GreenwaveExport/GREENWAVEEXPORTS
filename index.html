@@ -6,20 +6,33 @@
   <title>Greenwave Exports</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      background: url('https://link-to-your-naliyari-tree-image.jpg') center/cover no-repeat;
+      /* Naliyari Tree image as background */
+      background-size: cover;
+      background-attachment: fixed;
     }
 
     header {
-      background: #2E8B57;
-      color: white;
+      background: rgba(46, 139, 87, 0.8); /* Green theme with slight transparency */
       padding: 20px;
+      color: white;
       text-align: center;
     }
 
-    header nav ul {
+    /* Logo Section */
+    .logo-container {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .logo-container img {
+      width: 120px; /* Logo size */
+      height: auto;
+    }
+
+    nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
@@ -27,22 +40,55 @@
       justify-content: center;
     }
 
-    header nav ul li {
+    nav ul li {
       margin: 0 15px;
     }
 
-    header nav ul li a {
+    nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
 
+    .hero {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-direction: column;
+      text-shadow: 1px 1px 2px #000;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
     section {
       padding: 60px 20px;
-      margin: 20px;
-      background-color: white;
-      border-radius: 10px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.8); /* Slight transparent white background */
+      margin: 20px 0;
+      border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      font-size: 28px;
+      color: #333;
+    }
+
+    section p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.6;
     }
 
     footer {
@@ -52,34 +98,56 @@
       padding: 10px;
     }
 
-    .hero {
-      background: url('https://pollachifreshcoconut.com/wp-content/uploads/2023/07/banner1.jpg') center/cover no-repeat;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      flex-direction: column;
-      text-shadow: 1px 1px 2px #000;
+    footer p {
+      margin: 0;
     }
 
+    /* Gallery section */
     .gallery img {
-      width: 100%;
+      max-width: 100%;
       height: auto;
-      border-radius: 5px;
-      margin: 10px;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
 
-    .gallery {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin-bottom: 10px;
+      }
+
+      section {
+        padding: 40px 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Logo Section -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Greenwave Exports Logo">
+  </div>
+
+  <!-- Header Section -->
   <header>
     <h1>Greenwave Exports</h1>
     <nav>
@@ -93,7 +161,7 @@
     </nav>
   </header>
 
-  <!-- Home Section -->
+  <!-- Hero Section -->
   <section id="home" class="hero">
     <h2>Fresh Semi-Husked Coconut</h2>
     <p>Premium Export Quality</p>
@@ -102,4 +170,44 @@
   <!-- About Us Section -->
   <section id="about">
     <h2>About Us</h2>
-    <p>Greenwave Exports specializes in exporting the finest Semi-Husked Coconuts and G4 Green Chilli globally with consistent quality and
+    <p>Greenwave Exports is committed to exporting high-quality Semi-Husked Coconuts and G4 Green Chilli. We pride ourselves on timely delivery, consistent quality, and establishing long-lasting relationships with our global clients.</p>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <p>We offer the following products for export:</p>
+    <ul>
+      <li>Semi-Husked Coconuts</li>
+      <li>G4 Green Chilli</li>
+      <li>Fresh Coconuts</li>
+    </ul>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Coconuts_in_Kozhikode%2C_Kerala.jpg" alt="Coconuts" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Young_coconut.jpg" alt="Young Coconut" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Chillies_in_India.jpg" alt="Green Chilli" />
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Founder: Harsh Maru</strong> | Phone: <a href="tel:+917990310420">+91 79903 10420</a></p>
+    <p><strong>Founder: Kavaljeetsinh Nakum</strong> | Phone: <a href="tel:+917435853083">+91 74358 53083</a></p>
+    <p><strong>Founder: Krishnarajsinh Nakum</strong> | Phone: <a href="tel:+916351616531">+91 63516 16531</a></p>
+    <p>Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></p>
+    <p>Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</p>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Greenwave Exports. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
