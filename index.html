@@ -109,8 +109,7 @@
       flex-wrap: wrap;
     }
     .product-image {
-      width: 100%;
-      max-width: 400px;
+      width: 48%;  /* Increased width for each image */
       height: auto;
       margin: 0 auto;
       display: block;
@@ -174,6 +173,9 @@
       .products-container {
         flex-direction: column;
         align-items: center;
+      }
+      .product-image {
+        width: 80%; /* On smaller screens, increase image size */
       }
     }
   </style>
