@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Animation - Page Load</title>
+  <title>Image Animation - Hover Effect</title>
   <style>
     body {
       display: flex;
@@ -14,32 +14,25 @@
       background-color: #f0f0f0;
     }
 
-    /* Animation Keyframes */
-    @keyframes fadeZoomIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
     /* Image Style */
-    .animated-image {
+    .hover-image {
       width: 300px;
       height: auto;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      animation: fadeZoomIn 2s ease forwards;
+      transition: transform 0.5s ease;
+    }
+
+    /* Hover Effect */
+    .hover-image:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 
 <body>
 
-  <img src="img.png" alt="Animated Image" class="animated-image">
+  <img src="img.png" alt="Hover Animated Image" class="hover-image">
 
 </body>
 </html>
