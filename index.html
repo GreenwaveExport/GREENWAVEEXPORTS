@@ -3,27 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Greenwave Exports: Premium products exported globally.">
+  <meta name="keywords" content="exports, greenwave, agriculture, products, coconut, export business">
+  <meta name="author" content="Greenwave Exports">
   <title>Greenwave Exports</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f5f5f5;
       transition: background-color 0.5s ease;
     }
+
     /* Logo only section */
     .logo-container {
       background: linear-gradient(to right, #2c9f45, #57c4b1); /* Green gradient */
       text-align: center;
       padding: 20px 0;
     }
+
     .logo-container img {
       width: 120px;
       height: auto;
       object-fit: contain;
       border-radius: 0;
     }
+
     /* Header */
     header {
       background-color: #2c9f45; /* Green background */
@@ -31,7 +41,9 @@
       text-align: center;
       padding: 30px 0;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
     }
+
     header h1 {
       font-size: 40px;
       margin: 0;
@@ -40,36 +52,44 @@
       font-weight: bold;
       animation: fadeIn 1.5s ease-out;
     }
+
     .tagline {
-      font-style: normal; /* Normal text */
+      font-style: normal;
       font-weight: bold;
       font-size: 18px;
       color: #ffffff;
-      text-transform: uppercase; /* Makes the text uppercase */
+      text-transform: uppercase;
       margin-top: 10px;
       animation: fadeIn 2s ease-out;
     }
-    /* Navigation */
+
+    /* Navigation Bar */
     nav {
       background-color: #333;
       display: flex;
       justify-content: center;
       padding: 15px 0;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
       font-size: 18px;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
+
     nav a:hover {
-      color: #57c4b1;
-      transform: scale(1.1);
+      color: #57c4b1;  /* Change to accent color */
+      transform: scale(1.1);  /* Slight zoom effect */
     }
-    /* About Section */
+
+    /* Section Styling */
     .section {
       padding: 50px 20px;
       background-color: white;
@@ -78,17 +98,20 @@
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       animation: fadeIn 2s ease-out;
     }
+
     .section h2 {
       font-size: 28px;
       margin-bottom: 20px;
       color: #333;
       font-weight: bold;
     }
+
     .section p {
       font-size: 16px;
       line-height: 1.6;
       color: #555;
     }
+
     footer {
       background-color: #333;
       color: white;
@@ -96,13 +119,16 @@
       padding: 15px;
       margin-top: 20px;
     }
+
     ul {
       list-style: none;
       padding-left: 0;
     }
+
     ul li {
       margin: 5px 0;
     }
+
     img.product-image {
       width: 100%;
       max-width: 300px;
@@ -112,8 +138,41 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       transition: transform 0.3s ease;
     }
+
     img.product-image:hover {
-      transform: scale(1.05);
+      transform: scale(1.05);  /* Slight zoom effect */
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #2c9f45;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #57c4b1;
     }
 
     /* Animation for fade-in effects */
@@ -127,10 +186,12 @@
       .logo-container img {
         width: 90px;
       }
+
       .section {
         margin: 10px;
         padding: 20px 10px;
       }
+
       nav a {
         margin: 5px 10px;
         font-size: 14px;
@@ -194,6 +255,14 @@
   <p>Founder: <strong>Krishnarajsinh Nakum</strong> | Phone: <a href="tel:+916351616531">+91 63516 16531</a></p>
   <p>Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></p>
   <p>Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</p>
+
+  <!-- Contact Form -->
+  <form action="#" method="post">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </div>
 
 <!-- Footer -->
