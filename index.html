@@ -5,212 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Greenwave Exports</title>
   <style>
-    /* General Styles */
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f4f9f4;  /* Light greenish background */
-      color: #333;  /* Dark text for readability */
+      font-family: Arial, sans-serif;
+      background-color: #f4f9f4;
     }
     
-    /* Logo Section */
-    .logo-container {
-      background: #ffffff;
-      text-align: center;
-      padding: 15px 0;
-    }
-    .logo-container img {
-      width: 120px;
-      height: auto;
-      object-fit: contain;
-      animation: logo-float 3s ease-in-out infinite;
-    }
-    
-    @keyframes logo-float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-    
-    /* Header Section */
     header {
-      background-color: #2c6b4f;  /* Green theme */
+      background: #2E8B57; /* Green theme */
+      padding: 20px;
       color: white;
       text-align: center;
-      padding: 20px 0;
-      animation: slide-in 1s ease-out;
     }
     
-    @keyframes slide-in {
-      0% { transform: translateX(-100%); opacity: 0; }
-      100% { transform: translateX(0); opacity: 1; }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
     }
     
-    .tagline {
-      font-style: normal;
+    nav ul li {
+      margin: 0 15px;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
       font-weight: bold;
-      font-size: 18px;
-      color: #ffffff;
-      text-transform: uppercase;
+    }
+    
+    .hero {
+      background: url('https://pollachifreshcoconut.com/wp-content/uploads/2023/07/banner1.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-direction: column;
+      text-shadow: 1px 1px 2px #000;
+    }
+    
+    .hero h2 {
+      font-size: 36px;
+      margin: 0;
+    }
+    
+    .hero p {
+      font-size: 20px;
       margin-top: 10px;
     }
     
-    /* Navigation Bar */
-    nav {
-      background-color: #4d9259;  /* Lighter green */
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px 15px;
-      font-weight: bold;
-      font-size: 16px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Section Styles */
-    .section {
-      padding: 40px 20px;
-      background-color: white;
-      margin: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: fade-in 1.5s ease-out;
+    section {
+      padding: 60px 20px;
+      text-align: center;
     }
     
-    @keyframes fade-in {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+    section h2 {
+      font-size: 28px;
+      color: #333;
+    }
+    
+    section p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.6;
     }
     
     footer {
-      background-color: #2c6b4f;  /* Dark green */
+      background: #2E8B57;
       color: white;
       text-align: center;
-      padding: 15px;
-      margin-top: 20px;
+      padding: 10px;
+    }
+    
+    footer p {
+      margin: 0;
     }
 
-    /* List Styling */
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 5px 0;
-    }
-
-    /* Product Image Hover Zoom */
-    img.product-image {
-      width: 100%;
-      max-width: 300px;
+    /* Gallery section */
+    .gallery img {
+      max-width: 100%;
       height: auto;
-      margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      margin: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
     }
-    img.product-image:hover {
-      transform: scale(1.1);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-
-    /* Smooth Scroll Effect */
-    html {
-      scroll-behavior: smooth;
+    
+    .gallery img:hover {
+      transform: scale(1.05);
     }
 
-    /* Responsive for mobile */
-    @media (max-width: 600px) {
-      .logo-container img {
-        width: 90px;
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 28px;
       }
-      .section {
-        margin: 10px;
-        padding: 20px 10px;
+      
+      .hero p {
+        font-size: 18px;
       }
-      nav a {
-        margin: 5px 10px;
-        font-size: 14px;
+      
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin-bottom: 10px;
+      }
+
+      section {
+        padding: 40px 10px;
       }
     }
   </style>
 </head>
-
 <body>
 
-<!-- Logo Section -->
-<div class="logo-container">
-  <img src="logo.png" alt="Greenwave Exports Logo">
-</div>
+  <!-- Header Section -->
+  <header>
+    <h1>Greenwave Exports</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- Black Header -->
-<header>
-  <h1>Greenwave Exports</h1>
-  <p class="tagline">Built on Trust. Shipped with Care.</p>
-</header>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Fresh Semi-Husked Coconut</h2>
+    <p>Premium Export Quality</p>
+  </section>
 
-<!-- Navigation Bar -->
-<nav>
-  <a href="#about">About</a>
-  <a href="#products">Products</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <!-- About Us Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Greenwave Exports specializes in exporting the finest Semi-Husked Coconuts globally, ensuring consistent quality and timely delivery. We are dedicated to providing the best products for our international clients.</p>
+  </section>
 
-<!-- About Section -->
-<div class="section" id="about">
-  <h2>About Us</h2>
-  <p>📞 Mobile Numbers:</p>
-  <ul>
-    <li><a href="tel:+917435853083">+91 74358 53083</a></li>
-    <li><a href="tel:+917990310420">+91 79903 10420</a></li>
-    <li><a href="tel:+916351616531">+91 63516 16531</a></li>
-  </ul>
-  <p>📧 Email:</p>
-  <ul>
-    <li><a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></li>
-  </ul>
-  <p>📍 Address:</p>
-  <ul>
-    <li>MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</li>
-  </ul>
-</div>
+  <!-- Products Section -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <p>We offer high-quality Semi-Husked Coconuts and G4 Green Chilli for export. Our products are carefully sourced to meet international quality standards.</p>
+  </section>
 
-<!-- Products Section -->
-<div class="section" id="products">
-  <h2>Our Products</h2>
-  <div>
-    <!-- Animated Main Image -->
-    <img src="img.jpg" alt="Main Product" class="product-image animate-image">
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Coconuts_in_Kozhikode%2C_Kerala.jpg" alt="Coconuts" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Young_coconut.jpg" alt="Young Coconut" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Chillies_in_India.jpg" alt="Green Chilli" />
+    </div>
+  </section>
 
-    <!-- Other Products Images -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Coconuts_in_Kozhikode%2C_Kerala.jpg" alt="Coconuts" class="product-image">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Young_coconut.jpg" alt="Young Coconut" class="product-image">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Chillies_in_India.jpg" alt="Chillies" class="product-image">
-  </div>
-</div>
+  <!-- Contact Us Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:info@greenwaveexports.com">info@greenwaveexports.com</a></p>
+    <p>Phone: +91 79903 10420</p>
+    <p>Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</p>
+  </section>
 
-<!-- Contact Section -->
-<div class="section" id="contact">
-  <h2>Contact Us</h2>
-  <p>Founder: <strong>Harsh Maru</strong> | Phone: <a href="tel:+917990310420">+91 79903 10420</a></p>
-  <p>Founder: <strong>Kavaljeetsinh Nakum</strong> | Phone: <a href="tel:+917435853083">+91 74358 53083</a></p>
-  <p>Founder: <strong>Krishnarajsinh Nakum</strong> | Phone: <a href="tel:+916351616531">+91 63516 16531</a></p>
-  <p>Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></p>
-  <p>Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</p>
-</div>
-
-<!-- Footer -->
-<footer>
-  &copy; 2025 Greenwave Exports. All rights reserved.
-</footer>
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Greenwave Exports. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
