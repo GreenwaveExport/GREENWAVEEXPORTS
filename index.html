@@ -3,200 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greenwave Exports</title>
+  <title>Image Animation - Page Load</title>
   <style>
-    /* Basic styles */
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-    }
-    /* Animation Keyframes */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Logo Section */
-    .logo-container {
-      background: #ffffff;
-      text-align: center;
-      padding: 15px 0;
-      animation: fadeIn 2s ease;
-    }
-    .logo-container img {
-      width: 120px;
-      height: auto;
-      object-fit: contain;
-      border-radius: 0;
-    }
-
-    /* Header */
-    header {
-      background-color: #000000;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      animation: zoomIn 1.5s ease;
-    }
-    .tagline {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 18px;
-      color: #ffffff;
-      text-transform: uppercase;
-      margin-top: 10px;
-    }
-
-    /* Navigation */
-    nav {
-      background-color: #333;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 10px 15px;
-      font-weight: bold;
-      font-size: 16px;
-      transition: color 0.3s, transform 0.3s;
-    }
-    nav a:hover {
-      color: #00ffcc;
-      transform: scale(1.1);
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
     }
 
-    /* Section Styling */
-    .section {
-      padding: 40px 20px;
-      background-color: white;
-      margin: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      animation: slideUp 1s ease;
+    /* Animation Keyframes */
+    @keyframes fadeZoomIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
-    /* Footer */
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-      animation: fadeIn 2s ease;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 5px 0;
-    }
-
-    img.product-image {
-      width: 100%;
-      max-width: 300px;
+    /* Image Style */
+    .animated-image {
+      width: 300px;
       height: auto;
-      margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
-    }
-    img.product-image:hover {
-      transform: scale(1.05);
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .logo-container img {
-        width: 90px;
-      }
-      .section {
-        margin: 10px;
-        padding: 20px 10px;
-      }
-      nav a {
-        margin: 5px 10px;
-        font-size: 14px;
-      }
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: fadeZoomIn 2s ease forwards;
     }
   </style>
 </head>
 
 <body>
 
-<!-- Logo Section -->
-<div class="logo-container">
-  <img src="logo.png" alt="Greenwave Exports Logo">
-</div>
-
-<!-- Black Header -->
-<header>
-  <h1>Greenwave Exports</h1>
-  <p class="tagline">Built on Trust. Shipped with Care.</p>
-</header>
-
-<!-- Navigation Bar -->
-<nav>
-  <a href="#about">About</a>
-  <a href="#products">Products</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- About Section -->
-<div class="section" id="about">
-  <h2>About Us</h2>
-  <p>📞 Mobile Numbers:</p>
-  <ul>
-    <li><a href="tel:+917435853083">+91 74358 53083</a></li>
-    <li><a href="tel:+917990310420">+91 79903 10420</a></li>
-    <li><a href="tel:+916351616531">+91 63516 16531</a></li>
-  </ul>
-  <p>📧 Email:</p>
-  <ul>
-    <li><a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></li>
-  </ul>
-  <p>📍 Address:</p>
-  <ul>
-    <li>MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</li>
-  </ul>
-</div>
-
-<!-- Products Section -->
-<div class="section" id="products">
-  <h2>Our Products</h2>
-  <div>
-    <img src="img.jpg" alt="Your Photo" class="product-image">
-  </div>
-</div>
-
-<!-- Contact Section -->
-<div class="section" id="contact">
-  <h2>Contact Us</h2>
-  <p>Founder: <strong>Harsh Maru</strong> | Phone: <a href="tel:+917990310420">+91 79903 10420</a></p>
-  <p>Founder: <strong>Kavaljeetsinh Nakum</strong> | Phone: <a href="tel:+917435853083">+91 74358 53083</a></p>
-  <p>Founder: <strong>Krishnarajsinh Nakum</strong> | Phone: <a href="tel:+916351616531">+91 63516 16531</a></p>
-  <p>Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a></p>
-  <p>Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004</p>
-</div>
-
-<!-- Footer -->
-<footer>
-  &copy; 2025 Greenwave Exports. All rights reserved.
-</footer>
+  <img src="img.png" alt="Animated Image" class="animated-image">
 
 </body>
 </html>
