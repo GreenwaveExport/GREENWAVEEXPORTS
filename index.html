@@ -1,1126 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Food Exports | Premium Coconut & Green Chili</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #ff6b6b;
-            --secondary: #4ecdc4;
-            --accent: #ffe66d;
-            --dark: #1a1a2e;
-            --darker: #16213e;
-            --light: #f8f9fa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-        }
-
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-animation span {
-            position: absolute;
-            display: block;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1),
-                        0 0 20px rgba(255, 255, 255, 0.1),
-                        0 0 30px rgba(255, 255, 255, 0.1),
-                        0 0 40px rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-            animation: animate 15s linear infinite;
-        }
-
-        .bg-animation span:nth-child(1) {
-            top: 20%;
-            left: 20%;
-            width: 80px;
-            height: 80px;
-            animation-delay: 0s;
-        }
-
-        .bg-animation span:nth-child(2) {
-            top: 60%;
-            left: 80%;
-            width: 100px;
-            height: 100px;
-            animation-delay: 1.5s;
-            animation-duration: 12s;
-        }
-
-        .bg-animation span:nth-child(3) {
-            top: 10%;
-            left: 65%;
-            width: 50px;
-            height: 50px;
-            animation-delay: 5.5s;
-        }
-
-        .bg-animation span:nth-child(4) {
-            top: 80%;
-            left: 70%;
-            width: 60px;
-            height: 60px;
-            animation-delay: 0s;
-            animation-duration: 18s;
-        }
-
-        .bg-animation span:nth-child(5) {
-            top: 85%;
-            left: 10%;
-            width: 40px;
-            height: 40px;
-            animation-delay: 0s;
-        }
-
-        @keyframes animate {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-1000px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-
-        /* Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background-color: rgba(26, 26, 46, 0.8);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo {
-            color: var(--light);
-            font-size: 2em;
-            font-weight: 700;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .navigation {
-            position: relative;
-            display: flex;
-        }
-
-        .navigation li {
-            list-style: none;
-            margin-left: 30px;
-        }
-
-        .navigation li a {
-            text-decoration: none;
-            color: var(--light);
-            font-weight: 500;
-            padding: 6px 15px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .navigation li a:hover,
-        .navigation li a.active {
-            background: var(--primary);
-            color: var(--dark);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 100px;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to top, var(--dark), transparent);
-            z-index: 10;
-        }
-
-        .hero img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.2;
-        }
-
-        .hero-content {
-            position: relative;
-            max-width: 900px;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .hero-content h2 {
-            font-size: 5em;
-            font-weight: 700;
-            color: var(--light);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-        }
-
-        .hero-content h2 span {
-            color: var(--primary);
-        }
-
-        .hero-content p {
-            font-size: 1.2em;
-            color: var(--light);
-            margin-bottom: 40px;
-            line-height: 1.5;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 35px;
-            background: var(--primary);
-            color: var(--dark);
-            font-size: 1.1em;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 40px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn:hover {
-            background: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* About Section */
-        section {
-            position: relative;
-            padding: 100px;
-        }
-
-        .title {
-            position: relative;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .title h2 {
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--light);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .title h2 span {
-            color: var(--primary);
-        }
-
-        .title p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--light);
-            line-height: 1.5;
-            opacity: 0.8;
-        }
-
-        .about-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .about-text {
-            position: relative;
-            width: 48%;
-        }
-
-        .about-text h3 {
-            font-size: 2em;
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 20px;
-        }
-
-        .about-text h3 span {
-            color: var(--secondary);
-        }
-
-        .about-text p {
-            color: var(--light);
-            line-height: 1.8;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .about-img {
-            position: relative;
-            width: 48%;
-            min-height: 400px;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 25px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        .about-img img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Products Section */
-        .products {
-            background: var(--darker);
-        }
-
-        .products-content {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .product-card {
-            position: relative;
-            width: 300px;
-            margin: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-img {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .product-img img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1.1);
-        }
-
-        .product-text {
-            padding: 20px;
-        }
-
-        .product-text h3 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 10px;
-        }
-
-        .product-text h3 span {
-            color: var(--secondary);
-        }
-
-        .product-text p {
-            color: var(--light);
-            opacity: 0.8;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .product-text a {
-            display: inline-block;
-            padding: 8px 20px;
-            background: var(--primary);
-            color: var(--dark);
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .product-text a:hover {
-            background: var(--accent);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            padding: 100px;
-            background: var(--darker);
-        }
-
-        .slider {
-            position: relative;
-            width: 100%;
-            min-height: 500px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .slides {
-            display: flex;
-            width: 400%;
-            height: 100%;
-        }
-
-        .slide {
-            width: 25%;
-            transition: all 0.6s ease;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-        }
-
-        .navigation-manual {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 10;
-        }
-
-        .manual-btn {
-            border: 2px solid var(--primary);
-            padding: 5px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 1s;
-            margin: 0 10px;
-        }
-
-        .manual-btn:hover {
-            background: var(--primary);
-        }
-
-        #radio1:checked ~ .first {
-            margin-left: 0;
-        }
-
-        #radio2:checked ~ .first {
-            margin-left: -25%;
-        }
-
-        #radio3:checked ~ .first {
-            margin-left: -50%;
-        }
-
-        #radio4:checked ~ .first {
-            margin-left: -75%;
-        }
-
-        .navigation-auto {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 10;
-        }
-
-        .navigation-auto div {
-            border: 2px solid var(--primary);
-            padding: 5px;
-            border-radius: 10px;
-            transition: 1s;
-            margin: 0 10px;
-        }
-
-        #radio1:checked ~ .navigation-auto .auto-btn1 {
-            background: var(--primary);
-        }
-
-        #radio2:checked ~ .navigation-auto .auto-btn2 {
-            background: var(--primary);
-        }
-
-        #radio3:checked ~ .navigation-auto .auto-btn3 {
-            background: var(--primary);
-        }
-
-        #radio4:checked ~ .navigation-auto .auto-btn4 {
-            background: var(--primary);
-        }
-
-        input[type="radio"] {
-            display: none;
-        }
-
-        /* Contact Section */
-        .contact {
-            position: relative;
-            padding: 100px;
-        }
-
-        .contact-form {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-        }
-
-        .contact-form::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: skewX(-15deg);
-            transition: 0.5s;
-        }
-
-        .contact-form:hover::before {
-            left: 100%;
-        }
-
-        .contact-form h3 {
-            font-size: 2em;
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .input-box {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .input-box input,
-        .input-box textarea {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            color: var(--light);
-            font-size: 1em;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .input-box textarea {
-            resize: none;
-            min-height: 150px;
-        }
-
-        .input-box span {
-            position: absolute;
-            left: 0;
-            padding: 15px;
-            pointer-events: none;
-            color: var(--light);
-            opacity: 0.8;
-            transition: 0.5s;
-        }
-
-        .input-box input:focus ~ span,
-        .input-box input:valid ~ span,
-        .input-box textarea:focus ~ span,
-        .input-box textarea:valid ~ span {
-            transform: translateY(-20px);
-            font-size: 0.8em;
-            color: var(--primary);
-            opacity: 1;
-        }
-
-        .input-box input[type="submit"] {
-            background: var(--primary);
-            color: var(--dark);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .input-box input[type="submit"]:hover {
-            background: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            position: relative;
-            width: 100%;
-            padding: 50px 100px;
-            background: var(--darker);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .footer-section {
-            width: 30%;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.5em;
-            font-weight: 600;
-            color: var(--light);
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .footer-section h3::before {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .footer-section p {
-            color: var(--light);
-            opacity: 0.8;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .footer-section .socials {
-            display: flex;
-        }
-
-        .footer-section .socials a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin-right: 10px;
-            text-align: center;
-            line-height: 40px;
-            color: var(--light);
-            transition: all 0.3s ease;
-        }
-
-        .footer-section .socials a:hover {
-            background: var(--primary);
-            color: var(--dark);
-            transform: translateY(-5px);
-        }
-
-        .footer-section .links {
-            position: relative;
-        }
-
-        .footer-section .links li {
-            list-style: none;
-            margin-bottom: 10px;
-        }
-
-        .footer-section .links li a {
-            color: var(--light);
-            opacity: 0.8;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-section .links li a:hover {
-            color: var(--primary);
-            padding-left: 10px;
-        }
-
-        .footer-bottom {
-            width: 100%;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-bottom p {
-            color: var(--light);
-            opacity: 0.8;
-        }
-
-        .footer-bottom p a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .footer-bottom p a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 991px) {
-            header {
-                padding: 20px 50px;
-            }
-
-            .hero,
-            section,
-            footer {
-                padding: 100px 50px;
-            }
-
-            .hero-content h2 {
-                font-size: 3em;
-            }
-
-            .about-text,
-            .about-img {
-                width: 100%;
-            }
-
-            .about-img {
-                min-height: 300px;
-                margin-top: 30px;
-            }
-
-            .footer-section {
-                width: 100%;
-                margin-bottom: 50px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 20px;
-            }
-
-            .navigation {
-                display: none;
-            }
-
-            .navigation.active {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: var(--darker);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                z-index: 1000;
-            }
-
-            .navigation.active li {
-                margin: 10px 0;
-            }
-
-            .navigation.active li a {
-                font-size: 1.5em;
-            }
-
-            .toggle {
-                position: relative;
-                width: 30px;
-                height: 30px;
-                background: url(https://i.ibb.co/HrfVRcx/menu.png);
-                background-size: 30px;
-                background-repeat: no-repeat;
-                background-position: center;
-                cursor: pointer;
-                z-index: 1001;
-            }
-
-            .toggle.active {
-                background: url(https://i.ibb.co/rt3HybH/close.png);
-                background-size: 25px;
-                background-repeat: no-repeat;
-                background-position: center;
-            }
-
-            .hero,
-            section,
-            footer {
-                padding: 100px 20px;
-            }
-
-            .hero-content h2 {
-                font-size: 2em;
-                letter-spacing: 2px;
-            }
-
-            .hero-content p {
-                font-size: 1em;
-            }
-
-            .title h2 {
-                font-size: 2em;
-            }
-
-            .product-card {
-                width: 100%;
-                margin: 20px 0;
-            }
-
-            .gallery {
-                padding: 100px 20px;
-            }
-
-            .slider {
-                min-height: 300px;
-            }
-
-            .slide img {
-                height: 300px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Greenwave Exports</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e0eafc);
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-container {
+      background: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container img {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    header {
+      background-image: url('https://media.istockphoto.com/id/1157171214/photo/coconut-tree-and-blue-sky.jpg?s=612x612&w=0&k=20&c=8K-UKI9FgNBhA5eNL4kiCh6LzYmhkYKmdr57kY0LdjI=');
+      background-size: cover;
+      background-position: center;
+      color: black;
+      text-align: center;
+      padding: 60px 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+    }
+
+    .tagline {
+      font-size: 16px;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.4);
+    }
+
+    nav {
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      transition: 0.3s;
+      padding: 8px 15px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .section {
+      width: 100%;
+      padding: 60px 20px;
+      background: white;
+      border-top: 1px solid #ddd;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      animation: fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #0072ff;
+    }
+
+    .section p {
+      max-width: 1000px;
+      margin: 0 auto 15px;
+      font-size: 16px;
+      line-height: 1.8;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .product-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin: 30px auto;
+      display: block;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form input,
+    form textarea {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    form button {
+      padding: 14px;
+      background: linear-gradient(to right, #00b09b, #96c93d);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    form button:hover {
+      background: linear-gradient(to right, #96c93d, #00b09b);
+      transform: translateY(-2px);
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info i {
+      color: #0072ff;
+      margin-right: 8px;
+    }
+
+    .contact-info img {
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .logo-container img {
+        width: 150px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+
+  <div class="logo-container">
+    <img src="logo.png" alt="Greenwave Exports Logo" />
+  </div>
+
+  <header>
+    <h1>Greenwave Exports</h1>
+    <p class="tagline">BUILT ON TRUST. SHIPPED WITH CARE.</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="section" id="about">
+    <h2>About Us</h2>
+    <p>
+      At <strong>Greenwave Exports</strong>, we specialize in exporting <strong>Semi Husked Coconuts</strong>,
+      ensuring top-quality products to meet the needs of our international clients. With years of experience, we
+      have established a reputation for delivering fresh and premium coconuts globally. Our commitment to quality
+      and timely deliveries makes us a trusted partner in the coconut export industry.
+    </p>
+    <p>
+      We strive to bring the best products directly from India to our customers, focusing on sustainability and
+      ethical sourcing practices.
+    </p>
+  </div>
+
+  <div class="section" id="products">
+    <h2>Our Products</h2>
+    <img src="img.jpg" alt="Our Product Image 1" class="product-image" />
+    <img src="img.png" alt="Our Product Image 2" class="product-image" />
+  </div>
+
+  <div class="section" id="contact">
+    <h2>Contact Us</h2>
+
+    <form action="https://formspree.io/f/mzzrzlgq" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <p><strong>Harsh Maru</strong></p>
+      <p>
+        <i class="fas fa-phone-alt"></i>
+        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584845.jpg" style="width: 40px; height: 40px" />
+        <a href="tel:+917990310420">+91 79903 10420</a>
+      </p>
+
+      <p><strong>Kavaljeet Nakum</strong></p>
+      <p>
+        <i class="fas fa-phone-alt"></i>
+        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584845.jpg" style="width: 40px; height: 40px" />
+        <a href="tel:+917435853083">+91 74358 53083</a>
+      </p>
+
+      <p><strong>Krishnaraj Nakum</strong></p>
+      <p>
+        <i class="fas fa-phone-alt"></i>
+        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584845.jpg" style="width: 40px; height: 40px" />
+        <a href="tel:+916351616531">+91 63516 16531</a>
+      </p>
+
+      <p>
+        <i class="fas fa-envelope"></i>
+        <img src="https://static.vecteezy.com/system/resources/previews/006/697/974/non_2x/mail-email-icon-template-black-color-editable-mail-email-icon-symbol-flat-illustration-for-graphic-and-web-design-free-vector.jpg" style="width: 50px; height: 50px" />
+        Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a>
+      </p>
+
+      <p>
+        <i class="fas fa-map-marker-alt"></i>
+        <img src="https://icons.veryicon.com/png/o/commerce-shopping/e-commerce-website-icon/address-81.png" style="width: 40px; height: 40px" />
+        Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004
+      </p>
     </div>
+  </div>
 
-    <!-- Header/Navigation -->
-    <header>
-        <a href="#" class="logo">Global<span>Exports</span></a>
-        <ul class="navigation">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="toggle"></div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Food Export Background">
-        <div class="hero-content">
-            <h2>Premium Food <span>Exports</span></h2>
-            <p>We specialize in exporting the finest quality coconuts, green chilies, and other agricultural products worldwide. Our commitment to quality and sustainability makes us a trusted partner in the global food market.</p>
-            <a href="#products" class="btn">Our Products</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="title">
-            <h2>About <span>Us</span></h2>
-            <p>Learn more about our company and our commitment to quality exports.</p>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Global <span>Food Exports</span></h3>
-                <p>Founded in 2010, Global Food Exports has grown to become a leading exporter of premium agricultural products. We work directly with farmers to ensure the highest quality standards from farm to table.</p>
-                <p>Our mission is to bridge the gap between producers and global markets, providing fresh, high-quality products while supporting sustainable farming practices.</p>
-                <p>With a network spanning across multiple continents, we've established long-term relationships with suppliers and buyers alike, ensuring consistent quality and reliable delivery.</p>
-                <a href="#contact" class="btn">Contact Us</a>
-            </div>
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="About Us">
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="title">
-            <h2>Our <span>Products</span></h2>
-            <p>Discover our premium selection of export-quality food products.</p>
-        </div>
-        <div class="products-content">
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coconut">
-                </div>
-                <div class="product-text">
-                    <h3>Premium <span>Coconuts</span></h3>
-                    <p>Our coconuts are hand-picked at peak ripeness, ensuring optimal flavor and nutritional value. Grown in pristine conditions without harmful pesticides.</p>
-                    <a href="#contact">Inquire Now</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1604977048617-3ab9a6e648c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Green Chili">
-                </div>
-                <div class="product-text">
-                    <h3>Green <span>Chilies</span></h3>
-                    <p>Export-grade green chilies with consistent heat levels and vibrant color. Carefully packaged to maintain freshness during transit to global destinations.</p>
-                    <a href="#contact">Inquire Now</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Spices">
-                </div>
-                <div class="product-text">
-                    <h3>Organic <span>Spices</span></h3>
-                    <p>A selection of premium organic spices, sourced directly from farmers practicing sustainable agriculture. Rich in flavor and aroma.</p>
-                    <a href="#contact">Inquire Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="title">
-            <h2>Product <span>Gallery</span></h2>
-            <p>Explore our products through our visual showcase.</p>
-        </div>
-        <div class="slider">
-            <input type="radio" name="radio-btn" id="radio1" checked>
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
-            
-            <div class="slides first">
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Export Packaging">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fresh Produce">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1574323347407-f5e1cfac62f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Quality Control">
-                </div>
-                <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shipping Process">
-                </div>
-            </div>
-            
-            <div class="navigation-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-                <label for="radio4" class="manual-btn"></label>
-            </div>
-            
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-                <div class="auto-btn4"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="title">
-            <h2>Contact <span>Us</span></h2>
-            <p>Get in touch for inquiries or feedback about our products and services.</p>
-        </div>
-        <div class="contact-form">
-            <h3>Send Feedback</h3>
-            <form action="https://formsubmit.co/your-email@example.com" method="POST">
-                <div class="input-box">
-                    <input type="text" name="name" required>
-                    <span>Full Name</span>
-                </div>
-                <div class="input-box">
-                    <input type="email" name="email" required>
-                    <span>Email Address</span>
-                </div>
-                <div class="input-box">
-                    <input type="text" name="subject" required>
-                    <span>Subject</span>
-                </div>
-                <div class="input-box">
-                    <textarea name="message" required></textarea>
-                    <span>Your Message</span>
-                </div>
-                <div class="input-box">
-                    <input type="submit" value="Send Message">
-                </div>
-                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
-                <input type="hidden" name="_captcha" value="false">
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Global Food Exports is a premier exporter of high-quality agricultural products, committed to sustainable practices and exceptional customer service.</p>
-                <div class="socials">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Export Street, Food City, FC 12345</p>
-                <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
-                <p><i class="fas fa-envelope"></i> info@globalfoodexports.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Global Food Exports. All Rights Reserved | Designed by <a href="#">YourCompany</a></p>
-        </div>
-    </footer>
-
-    <script>
-        // Navigation Toggle for Mobile
-        const toggle = document.querySelector('.toggle');
-        const navigation = document.querySelector('.navigation');
-        const header = document.querySelector('header');
-
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            navigation.classList.toggle('active');
-        });
-
-        // Sticky Header on Scroll
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('sticky', window.scrollY > 0);
-        });
-
-        // Close Navigation When Clicking a Link (Mobile)
-        const navLinks = document.querySelectorAll('.navigation li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                toggle.classList.remove('active');
-                navigation.classList.remove('active');
-            });
-        });
-
-        // Auto Slide for Gallery
-        let counter = 1;
-        setInterval(() => {
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if (counter > 4) {
-                counter = 1;
-            }
-        }, 5000);
-
-        // Form Submission Animation
-        const form = document.querySelector('.contact-form form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Here you would normally send the form data to your server
-            // For demo purposes, we'll just show an alert
-            alert('Thank you for your feedback! We will contact you soon.');
-            form.reset();
-        });
-
-        // Animate Elements on Scroll
-        window.addEventListener('scroll', reveal);
-
-        function reveal() {
-            const reveals = document.querySelectorAll('.product-card, .about-text, .about-img');
-            
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveals[i].getBoundingClientRect().top;
-                const revealPoint = 150;
-                
-                if (revealTop < windowHeight - revealPoint) {
-                    reveals[i].classList.add('active');
-                } else {
-                    reveals[i].classList.remove('active');
-                }
-            }
-        }
-
-        // Initial call to reveal elements already in view
-        reveal();
-    </script>
+  <footer>
+    &copy; 2025 Greenwave Exports. All rights reserved.
+  </footer>
 </body>
 </html>
