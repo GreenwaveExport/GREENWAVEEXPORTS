@@ -1,884 +1,204 @@
-/* Global Styles */
-:root {
-    --primary-color: #00ff88;
-    --secondary-color: #00a1ff;
-    --accent-color: #ff00e4;
-    --dark-bg: #121212;
-    --darker-bg: #0a0a0a;
-    --text-color: #ffffff;
-    --text-muted: #b3b3b3;
-    --card-bg: #1e1e1e;
-    --transition: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-a:hover {
-    color: var(--primary-color);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-    border-radius: 3px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: #000;
-    border: none;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: var(--transition);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
-    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-}
-
-/* Header Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 5%;
-    background-color: rgba(10, 10, 10, 0.9);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--primary-color);
-    transition: var(--transition);
-}
-
-.logo:hover {
-    transform: rotate(15deg) scale(1.2);
-}
-
-
-.company-name {
-    font-size: 1.5rem;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links li a {
-    position: relative;
-    padding: 0.5rem 0;
-    font-weight: 500;
-}
-
-.nav-links li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: var(--transition);
-}
-
-.nav-links li a:hover::after {
-    width: 100%;
-}
-
-.burger {
-    display: none;
-    cursor: pointer;
-}
-
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-color);
-    margin: 5px;
-    transition: var(--transition);
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('https://source.unsplash.com/random/1920x1080/?agriculture,export') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 80px;
-}
-
-.hero-content {
-    max-width: 800px;
-    padding: 0 2rem;
-}
-
-.hero-title {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    animation: fadeIn 1.5s ease;
-}
-
-.gradient-text {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradientShift 5s ease infinite;
-    background-size: 200% 200%;
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: var(--text-muted);
-    animation: fadeIn 2s ease;
-}
-
-.hero-btn {
-    display: inline-block;
-    padding: 15px 40px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: #000;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: var(--transition);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
-    text-decoration: none;
-    animation: fadeInUp 2s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
-    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-}
-
-.hero-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-}
-
-.hero-btn:hover::before {
-    left: 100%;
-}
-
-/* Gallery Section */
-.gallery-section {
-    padding: 5rem 0;
-    background-color: var(--darker-bg);
-}
-
-.slider-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease;
-    height: 500px;
-}
-
-.slide {
-    min-width: 100%;
-    position: relative;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slider-nav {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 10;
-}
-
-.slider-btn {
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: var(--transition);
-    z-index: 10;
-}
-
-.slider-btn:hover {
-    background: var(--primary-color);
-    color: black;
-}
-
-.slider-dots {
-    display: flex;
-    gap: 10px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.dot.active {
-    background: var(--primary-color);
-    transform: scale(1.2);
-}
-
-/* Products Section */
-.products-section {
-    padding: 5rem 0;
-    background-color: var(--dark-bg);
-}
-
-.products-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.product-card {
-    background-color: var(--card-bg);
-    border-radius: 15px;
-    overflow: hidden;
-    width: 350px;
-    transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
-}
-
-.product-img {
-    height: 250px;
-    overflow: hidden;
-}
-
-.product-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.product-card:hover .product-img img {
-    transform: scale(1.05);
-}
-
-.product-info {
-    padding: 1.5rem;
-}
-
-.product-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.product-info p {
-    color: var(--text-muted);
-}
-
-/* About Section */
-.about-section {
-    padding: 5rem 0;
-    background-color: var(--darker-bg);
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    margin-top: 2rem;
-}
-
-.about-img {
-    flex: 1;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.about-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: var(--transition);
-}
-
-.about-img:hover img {
-    transform: scale(1.03);
-}
-
-.about-content {
-    flex: 1;
-}
-
-.about-content p {
-    margin-bottom: 1.5rem;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 5rem 0;
-    background-color: var(--dark-bg);
-}
-
-.contact-container {
-    display: flex;
-    gap: 3rem;
-    margin-top: 2rem;
-}
-
-.contact-info {
-    flex: 1;
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.contact-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.contact-method {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.contact-method i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    min-width: 30px;
-}
-
-.contact-method a {
-    display: block;
-    margin-bottom: 0.5rem;
-    transition: var(--transition);
-}
-
-.contact-method a:hover {
-    color: var(--primary-color);
-}
-
-.contact-method address {
-    font-style: normal;
-    color: var(--text-muted);
-}
-
-.contact-form {
-    flex: 1;
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.contact-form h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 8px;
-    color: var(--text-color);
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
-}
-
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: #000;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 1rem;
-}
-
-.submit-btn:hover {
-    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-    transform: translateY(-2px);
-}
-
-/* Footer */
-.footer {
-    background-color: var(--darker-bg);
-    padding: 4rem 0 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.footer-address h3,
-.footer-links h3,
-.footer-social h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-}
-
-.footer-address address {
-    color: var(--text-muted);
-    line-height: 1.8;
-    font-style: normal;
-}
-
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.footer-links a {
-    color: var(--text-muted);
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-    padding-left: 5px;
-}
-
-.instagram-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-    color: white;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.instagram-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    margin-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .about-container,
-    .contact-container {
-        flex-direction: column;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenwave Exports</title>
     
-    .about-img,
-    .about-content,
-    .contact-info,
-    .contact-form {
-        flex: none;
-        width: 100%;
-    }
+        <title>Greenwave Exports</title>
+        <link rel="icon" type="image/png" href="Img/logo.png">
     
-    .hero-title {
-        font-size: 3rem;
-    }
     
-    .products-container {
-        justify-content: center;
-    }
-    
-    .product-card {
-        width: 300px;
-    }
-}
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://via.placeholder.com/50" type="image/x-icon">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="Img/logo.png" alt="Greenwave Exports Logo" class="logo">
+                <h1 class="company-name">Greenwave Exports</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
 
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        width: 70%;
-        height: calc(100vh - 80px);
-        background-color: rgba(10, 10, 10, 0.95);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        transition: var(--transition);
-        backdrop-filter: blur(10px);
-    }
-    
-    .nav-links.active {
-        right: 0;
-    }
-    
-    .burger {
-        display: block;
-    }
-    
-    .burger.active .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .burger.active .line2 {
-        opacity: 0;
-    }
-    
-    .burger.active .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .slider {
-        height: 400px;
-    }
-}
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to <span class="gradient-text">Greenwave Food Export</span></h1>
+            <p class="hero-subtitle">Exporting Quality Agricultural Products Worldwide</p>
+            <a href="#products" class="hero-btn">Explore Products</a>
+        </div>
+    </section>
 
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .slider {
-        height: 300px;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-}
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    burger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        burger.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            burger.classList.remove('active');
-        });
-    });
-    
-    // Image Slider
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const dotsContainer = document.querySelector('.slider-dots');
-    
-    let currentSlide = 0;
-    const slideCount = slides.length;
-    
-    // Create dots
-    slides.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
-    
-    const dots = document.querySelectorAll('.dot');
-    
-    function goToSlide(slideIndex) {
-        slider.style.transform = `translateX(-${slideIndex * 100}%)`;
-        currentSlide = slideIndex;
-        
-        // Update active dot
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-    
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slideCount;
-        goToSlide(currentSlide);
-    }
-    
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-        goToSlide(currentSlide);
-    }
-    
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    
-    // Auto slide change
-    let slideInterval = setInterval(nextSlide, 5000);
-    
-    // Pause on hover
-    const sliderContainer = document.querySelector('.slider-container');
-    sliderContainer.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
-    
-    sliderContainer.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(nextSlide, 5000);
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Form submission
-    const feedbackForm = document.getElementById('feedbackForm');
-    
-    feedbackForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        const subject = `Feedback from ${name}`;
-        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
-        
-        this.action = `mailto:exportsgreenwave@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        this.submit();
-    });
-    
-    // Add active class to nav links based on scroll position
-    const sections = document.querySelectorAll('section');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-});
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide active">
+                    <img src="Img/galary-semi-husked-coconut.jpg" alt="Export Product 1">
+                </div>
+                <div class="slide">
+                    <img src="Img/galary-green-chili-peppers.jpg" alt="Export Product 2">
+                </div>
+                <div class="slide">
+                    <img src="Img/galary-godown.jpeg" alt="Export Product 3">
+                </div>
+                <div class="slide">
+                    <img src="Img/galary-chili-bowl.jpg" alt="Export Product 4">
+                </div>
+                <div class="slide">
+                    <img src="Img/galary-chili.jpg" alt="Export Product 5">
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="slider-btn prev-btn">&larr;</button>
+                <div class="slider-dots"></div>
+                <button class="slider-btn next-btn">&rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-container">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="Img/card-coconut.jpeg" alt="Lime">
+                </div>
+                <div class="product-info">
+                    <h3>Semi-Husked Coconut</h3>
+                    <p>Organic coconuts sourced directly from farms, processed with utmost care for export.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="Img/card-green-chilli.jpeg" alt="Coconut">
+                </div>
+                <div class="product-info">
+                    <h3>G-4 Green Chilli</h3>
+                    <p> Premium quality Green chilies handpicked at peak ripeness, perfect for international markets.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="Img/card-red-chilli.jpeg" alt="Green Chili">
+                </div>
+                <div class="product-info">
+                    <h3>Red Chili</h3>
+                    <p>Spicy and fresh Red chilies packed with care to maintain quality during transit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2 class="section-title">About Greenwave Exports</h2>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="Img/freshtime.jpg" alt="About Greenwave Exports">
+            </div>
+            <div class="about-content">
+                <p>Greenwave Exports is a leading agricultural export company based in Rajkot, India.  we specialize in exporting premium quality agricultural products to markets worldwide.</p>
+                <p>Our mission is to bridge the gap between Indian farmers and global markets, ensuring fair prices for producers and top-quality products for consumers. We maintain strict quality control measures at every stage of our supply chain.</p>
+                <p>Our team of experts works closely with farmers to implement sustainable farming practices while meeting international export standards. We take pride in our reputation for reliability, quality, and customer satisfaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <a href="https://wa.me/917990310420" target="_blank">+91 7990310420</a>
+                        <a href="https://wa.me/917435853083" target="_blank">+91 7435853083</a>
+                        <a href="https://wa.me/916351616531" target="_blank">+91 6351616531</a>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <address>
+                        Mayani Nagar, Street No. 5,<br>
+                        Chandress Nagar Main Road,<br>
+                        Rajkot – 360004
+                    </address>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Feedback</h3>
+                <form id="feedbackForm" action="mailto:exportsgreenwave@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-address">
+                <h3>Greenwave Exports</h3>
+                <address>
+                    Mayani Nagar, Street No. 5,<br>
+                    Chandress Nagar Main Road,<br>
+                    Rajkot – 360004, Gujarat, India
+                </address>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="https://www.instagram.com/greenwave_exports" target="_blank" class="instagram-btn">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Greenwave Exports. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
