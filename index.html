@@ -1,308 +1,884 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Greenwave Exports</title>
+/* Global Styles */
+:root {
+    --primary-color: #00ff88;
+    --secondary-color: #00a1ff;
+    --accent-color: #ff00e4;
+    --dark-bg: #121212;
+    --darker-bg: #0a0a0a;
+    --text-color: #ffffff;
+    --text-muted: #b3b3b3;
+    --card-bg: #1e1e1e;
+    --transition: all 0.3s ease;
+}
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+html {
+    scroll-behavior: smooth;
+}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #f8f9fa, #e0eafc);
-      color: #333;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+}
 
-    .logo-container {
-      background: #ffffff;
-      text-align: center;
-      padding: 20px 0;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+a:hover {
+    color: var(--primary-color);
+}
 
-    .logo-container img {
-      width: 200px;
-      height: auto;
-      object-fit: contain;
-    }
+img {
+    max-width: 100%;
+    height: auto;
+}
 
-    header {
-      background-image: url('https://media.istockphoto.com/id/1157171214/photo/coconut-tree-and-blue-sky.jpg?s=612x612&w=0&k=20&c=8K-UKI9FgNBhA5eNL4kiCh6LzYmhkYKmdr57kY0LdjI=');
-      background-size: cover;
-      background-position: center;
-      color: black;
-      text-align: center;
-      padding: 60px 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    header h1 {
-      font-size: 2.8em;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
-    }
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-    .tagline {
-      font-size: 16px;
-      margin-top: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 600;
-      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.4);
-    }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    border-radius: 3px;
+}
 
-    nav {
-      background: linear-gradient(to right, #0072ff, #00c6ff);
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-      gap: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 18px;
-      transition: 0.3s;
-      padding: 8px 15px;
-      border-radius: 5px;
-    }
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+}
 
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
+/* Header Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: rgba(10, 10, 10, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    .section {
-      width: 100%;
-      padding: 60px 20px;
-      background: white;
-      border-top: 1px solid #ddd;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-      animation: fadeUp 1s ease;
-    }
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-    @keyframes fadeUp {
-      from {
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: rotate(15deg) scale(1.2);
+}
+
+
+.company-name {
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    position: relative;
+    padding: 0.5rem 0;
+    font-weight: 500;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://source.unsplash.com/random/1920x1080/?agriculture,export') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    animation: fadeIn 1.5s ease;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientShift 5s ease infinite;
+    background-size: 200% 200%;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    animation: fadeIn 2s ease;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+    text-decoration: none;
+    animation: fadeInUp 2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+}
+
+.hero-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.hero-btn:hover::before {
+    left: 100%;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 5rem 0;
+    background-color: var(--darker-bg);
+}
+
+.slider-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 500px;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+.slider-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: var(--primary-color);
+    color: black;
+}
+
+.slider-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Products Section */
+.products-section {
+    padding: 5rem 0;
+    background-color: var(--dark-bg);
+}
+
+.products-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    width: 350px;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+}
+
+.product-img {
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.product-info p {
+    color: var(--text-muted);
+}
+
+/* About Section */
+.about-section {
+    padding: 5rem 0;
+    background-color: var(--darker-bg);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.about-img {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.about-img:hover img {
+    transform: scale(1.03);
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 5rem 0;
+    background-color: var(--dark-bg);
+}
+
+.contact-container {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-info {
+    flex: 1;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-method i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    min-width: 30px;
+}
+
+.contact-method a {
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+}
+
+.contact-method a:hover {
+    color: var(--primary-color);
+}
+
+.contact-method address {
+    font-style: normal;
+    color: var(--text-muted);
+}
+
+.contact-form {
+    flex: 1;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--darker-bg);
+    padding: 4rem 0 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-address h3,
+.footer-links h3,
+.footer-social h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.footer-address address {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-style: normal;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.instagram-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
         opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
         opacity: 1;
         transform: translateY(0);
-      }
     }
+}
 
-    .section h2 {
-      text-align: center;
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #0072ff;
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
     }
-
-    .section p {
-      max-width: 1000px;
-      margin: 0 auto 15px;
-      font-size: 16px;
-      line-height: 1.8;
-      padding: 0 20px;
-      text-align: center;
+    50% {
+        background-position: 100% 50%;
     }
-
-    .product-image {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      margin: 30px auto;
-      display: block;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    100% {
+        background-position: 0% 50%;
     }
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    form input,
-    form textarea {
-      padding: 12px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    form button {
-      padding: 14px;
-      background: linear-gradient(to right, #00b09b, #96c93d);
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    form button:hover {
-      background: linear-gradient(to right, #96c93d, #00b09b);
-      transform: translateY(-2px);
-    }
-
-    .contact-info {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .contact-info p {
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
-
-    .contact-info i {
-      color: #0072ff;
-      margin-right: 8px;
-    }
-
-    .contact-info img {
-      vertical-align: middle;
-      margin-right: 8px;
-      border-radius: 5px;
-    }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      margin-top: auto;
-    }
-
-    @media (max-width: 768px) {
-      nav {
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .about-container,
+    .contact-container {
         flex-direction: column;
-        padding: 10px;
-      }
-
-      .logo-container img {
-        width: 150px;
-      }
-
-      header h1 {
-        font-size: 2em;
-      }
     }
-  </style>
-</head>
-<body>
+    
+    .about-img,
+    .about-content,
+    .contact-info,
+    .contact-form {
+        flex: none;
+        width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .products-container {
+        justify-content: center;
+    }
+    
+    .product-card {
+        width: 300px;
+    }
+}
 
-  <div class="logo-container">
-    <img src="logo.png" alt="Greenwave Exports Logo" />
-  </div>
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 70%;
+        height: calc(100vh - 80px);
+        background-color: rgba(10, 10, 10, 0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .burger {
+        display: block;
+    }
+    
+    .burger.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .burger.active .line2 {
+        opacity: 0;
+    }
+    
+    .burger.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .slider {
+        height: 400px;
+    }
+}
 
-  <header>
-    <h1>Greenwave Exports</h1>
-    <p class="tagline">BUILT ON TRUST. SHIPPED WITH CARE.</p>
-  </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="section" id="about">
-    <h2>About Us</h2>
-    <p>
-      At <strong>Greenwave Exports</strong>, we specialize in exporting <strong>Semi Husked Coconuts</strong>,
-      ensuring top-quality products to meet the needs of our international clients. With years of experience, we
-      have established a reputation for delivering fresh and premium coconuts globally. Our commitment to quality
-      and timely deliveries makes us a trusted partner in the coconut export industry.
-    </p>
-    <p>
-      We strive to bring the best products directly from India to our customers, focusing on sustainability and
-      ethical sourcing practices.
-    </p>
-  </div>
-
-  <div class="section" id="products">
-    <h2>Our Products</h2>
-    <img src="img.jpg" alt="Our Product Image 1" class="product-image" />
-    <img src="img.png" alt="Our Product Image 2" class="product-image" />
-  </div>
-
-  <div class="section" id="contact">
-    <h2>Contact Us</h2>
-
-    <form action="https://formspree.io/f/mzzrzlgq" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-
-    <div class="contact-info">
-      <p><strong>Harsh Maru</strong></p>
-      <p>
-        <i class="fas fa-phone-alt"></i>
-        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584845.jpg" style="width: 40px; height: 40px" />
-        <a href="tel:+917990310420">+91 79903 10420</a>
-      </p>
-
-      <p><strong>Kavaljeet Nakum</strong></p>
-      <p>
-        <i class="fas fa-phone-alt"></i>
-        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584845.jpg" style="width: 40px; height: 40px" />
-        <a href="tel:+917435853083">+91 74358 53083</a>
-      </p>
-
-      <p><strong>Krishnaraj Nakum</strong></p>
-      <p>
-        <i class="fas fa-phone-alt"></i>
-        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584845.jpg" style="width: 40px; height: 40px" />
-        <a href="tel:+916351616531">+91 63516 16531</a>
-      </p>
-
-      <p>
-        <i class="fas fa-envelope"></i>
-        <img src="https://static.vecteezy.com/system/resources/previews/006/697/974/non_2x/mail-email-icon-template-black-color-editable-mail-email-icon-symbol-flat-illustration-for-graphic-and-web-design-free-vector.jpg" style="width: 50px; height: 50px" />
-        Email: <a href="mailto:exportsgreenwave@gmail.com">exportsgreenwave@gmail.com</a>
-      </p>
-
-      <p>
-        <i class="fas fa-map-marker-alt"></i>
-        <img src="https://icons.veryicon.com/png/o/commerce-shopping/e-commerce-website-icon/address-81.png" style="width: 40px; height: 40px" />
-        Address: MAYANI CHOWK, MAVDI PLOT, RAJKOT, GUJARAT, INDIA - 360004
-      </p>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Greenwave Exports. All rights reserved.
-  </footer>
-</body>
-</html>
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .slider {
+        height: 300px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Navigation
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            burger.classList.remove('active');
+        });
+    });
+    
+    // Image Slider
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dotsContainer = document.querySelector('.slider-dots');
+    
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.dot');
+    
+    function goToSlide(slideIndex) {
+        slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+        currentSlide = slideIndex;
+        
+        // Update active dot
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        goToSlide(currentSlide);
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        goToSlide(currentSlide);
+    }
+    
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Auto slide change
+    let slideInterval = setInterval(nextSlide, 5000);
+    
+    // Pause on hover
+    const sliderContainer = document.querySelector('.slider-container');
+    sliderContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    sliderContainer.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 5000);
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Form submission
+    const feedbackForm = document.getElementById('feedbackForm');
+    
+    feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        const subject = `Feedback from ${name}`;
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
+        
+        this.action = `mailto:exportsgreenwave@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        this.submit();
+    });
+    
+    // Add active class to nav links based on scroll position
+    const sections = document.querySelectorAll('section');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+});
